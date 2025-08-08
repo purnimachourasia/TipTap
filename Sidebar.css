@@ -1,0 +1,262 @@
+.vettam-sidebar {
+  width: 260px;
+  height: 93vh;
+  background-color: #2c0143;
+  color: white;
+  padding: 1.5rem 1rem;
+  display: flex;
+  flex-direction: column;
+  font-family: "Avenir Next", sans-serif;
+  align-items: center;
+  border-radius: 30px;
+}
+
+.sidebar-header {
+  width: 100%;
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+.brand {
+  margin-left: 2px;
+  font-size: 1.6rem;
+  font-weight: bold;
+  text-align: left;
+  display: flex;
+}
+
+.col-icon {
+  font-size: 1.2rem;
+  color: white;
+  cursor: pointer;
+  margin-left: 120px;
+  margin-top: 4px;
+}
+
+.new-chat-btn {
+  margin-top: 1rem;
+  background-color: #ff6b00;
+  color: white;
+  border: none;
+  padding: 0.6rem 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  width: 100%;
+  height: 3rem;
+  transition: background-color 0.3s ease;
+}
+
+.new-chat-btn:hover {
+  background-color: #e55d00;
+}
+
+.card-section {
+  width: 87%;
+  margin-left: 1px;
+  background-color: #6a4f82;
+  padding: 1rem;
+  border-radius: 12px;
+  margin-bottom: 1.2rem;
+}
+
+.section-title {
+  font-size: 0.8rem;
+  font-weight: bold;
+  color: #d6cce7;
+  margin-bottom: 0.8rem;
+}
+
+.sidebar-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.sidebar-list li {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  padding: 0.5rem 0.75rem;
+  border-radius: 8px;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  color: white;
+}
+
+.sidebar-list li:hover {
+  background-color: #8460aa;
+}
+
+.sidebar-list li.active {
+  background-color: white;
+  color: #2c0143;
+  font-weight: bold;
+}
+
+.sidebar-list li.active .icon {
+  color: #2c0143;
+}
+
+.icon {
+  font-size: 1rem;
+}
+
+.chat-history-card {
+  padding: 1rem;
+  width: 100%;
+  margin-left: 1px;
+  /* margin-top: auto; */
+  margin-bottom: 1rem;
+}
+
+.icon-clock {
+  margin-left: 4rem;
+}
+.icon-chat {
+  font-weight: bold;
+}
+
+.chat-history-header {
+  background-color: #441c60;
+  height: 30px;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #fefeff;
+  font-weight: bold;
+  margin-bottom: 0.8rem;
+}
+
+.chat-history-list {
+  font-size: 0.85rem;
+  color: #ddd;
+}
+
+.chat-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.3rem 0;
+  margin-bottom: 0.3rem;
+}
+
+.chat-item:hover {
+  background-color: #5c3578;
+  padding-left: 0.5rem;
+  border-radius: 6px;
+}
+.view-more {
+  font-size: 0.8rem;
+  color: #fffefe;
+  margin-top: 2px;
+  text-decoration: underline;
+}
+
+.view-more:hover {
+  font-weight: bold;
+}
+
+.today {
+  margin-top: 2px;
+  margin-bottom: 6px;
+  font-weight: bold;
+}
+.today-icon {
+  margin-top: 2px;
+  margin-left: 12.3rem;
+}
+
+.sidebar-footer {
+  width: 87%;
+  background-color: #441c60;
+  padding: 0.8rem 1rem;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  color: #fff;
+  font-size: 0.85rem;
+}
+
+/* Top row */
+.footer-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.avatars {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.avatars img {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  border: 2px solid #2c0143;
+}
+
+.notifications {
+  position: relative;
+  font-size: 1.2rem;
+}
+
+.notifications .badge {
+  position: absolute;
+  top: -6px;
+  right: -10px;
+  background-color: #ff6b00;
+  color: white;
+  font-size: 0.6rem;
+  border-radius: 999px;
+  padding: 2px 6px;
+}
+
+/* Divider */
+.footer-divider {
+  width: 100%;
+  height: 1px;
+  background-color: #5e3c78;
+}
+
+/* Bottom row */
+.footer-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.user-avatar {
+  font-size: 1.2rem;
+}
+
+.footer-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+
+.app-container {
+  display: flex;
+}
+
+.editor-container {
+  margin-left: 280px; /* matches sidebar width */
+  flex: 1;
+}

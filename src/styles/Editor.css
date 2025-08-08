@@ -1,0 +1,251 @@
+.editor-wrapper {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.doc-header {
+  display: flex;
+  align-items: center;
+  background: white; /* Force no background */
+  padding: 0.8rem 1rem;
+  font-weight: bold;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 50px; /* This sets the title size */
+}
+
+.doc-title {
+  display: flex;
+  align-items: center;
+
+  gap: 1rem; /* space between title and icons */
+}
+
+.header-icon {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #555;
+  font-size: 34px; /* bigger icons */
+}
+
+.header-icon svg {
+  width: 26px;
+  height: 26px;
+}
+
+.doc-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: #555;
+}
+
+.editor-tabs {
+  display: flex;
+  padding: 0 1rem;
+  background: white; /* Force no background */
+  border-bottom: 1px solid #ddd;
+  margin-left: 35px;
+  margin-right: 20px;
+}
+
+.editor-tabs button {
+  background: none;
+  border: none;
+  font-size: 1.1rem;
+  margin-left: -16px;
+
+  padding: 0.6rem 1rem;
+  cursor: pointer;
+}
+
+.editor-tabs .active-tab {
+  border-bottom: 3px solid #7d3cff;
+  font-weight: bold;
+}
+
+.toolbar-group {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.toolbar-separator {
+  width: 1px;
+  height: 24px;
+  background-color: #ccc;
+}
+
+.editor-toolbar {
+  display: flex;
+  padding: 0.5rem;
+  background: rgb(248, 245, 249);
+  border-bottom: 1px solid #ddd;
+  margin-left: 35px;
+  margin-right: 20px;
+  gap: 12px; /* Increased gap between buttons */
+}
+.editor-toolbar select {
+  background: none;
+  border: none; /* Remove border */
+  padding: 0.6rem 1rem; /* Match button padding */
+  font-size: 1.1rem;
+  border-radius: 6px;
+  cursor: pointer;
+  appearance: none; /* Remove default dropdown arrow styling */
+}
+
+.editor-toolbar select:hover {
+  background: #f0f0f0;
+}
+
+.editor-toolbar button {
+  background: none;
+  border: none; /* Remove border */
+  padding: 0.6rem 1rem; /* Bigger size */
+  font-size: 1.2rem; /* Larger icons/text */
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.editor-toolbar button:hover {
+  background: #f0f0f0; /* Soft hover effect */
+}
+
+.editor-content {
+  flex: 1;
+  padding: 1rem;
+  background: white;
+  border-radius: 4px;
+  margin: 1rem auto; /* center horizontally */
+  max-width: 80%; /* keep nice margins on both sides */
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05); /* optional for clean look */
+}
+.right-sidebar,
+.sidebar-tabs,
+.thumbnail-page,
+.index-list,
+.search-section {
+  font-family: sans-serif;
+}
+/* Margin Controls */
+.margin-controls {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+
+  border: 1px solid #ccc;
+  padding: 8px 12px;
+  margin: 8px 1rem;
+  border-radius: 6px;
+  font-size: 14px;
+}
+
+.margin-controls label {
+  text-transform: capitalize;
+  font-weight: bold;
+  margin-right: 4px;
+}
+
+.margin-controls input {
+  width: 60px;
+  padding: 4px;
+  border: 1px solid #bbb;
+  border-radius: 4px;
+}
+
+.margin-controls select {
+  padding: 4px;
+  border: 1px solid #bbb;
+  border-radius: 4px;
+}
+
+/* Rulers */
+.rulers {
+  position: relative;
+}
+
+.horizontal-ruler {
+  height: 20px;
+  background: repeating-linear-gradient(
+    to right,
+    #ccc,
+    #ccc 1px,
+    transparent 1px,
+    transparent 10px
+  );
+  border-bottom: 1px solid #999;
+}
+
+.vertical-ruler {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 20px;
+  height: calc(100% - 20px);
+  background: repeating-linear-gradient(
+    to bottom,
+    #ccc,
+    #ccc 1px,
+    transparent 1px,
+    transparent 10px
+  );
+  border-right: 1px solid #999;
+}
+
+/* Header/Footer areas */
+.header-area,
+.footer-area {
+  padding: 8px;
+  margin: 0 1rem;
+  border-radius: 4px;
+}
+
+.header-area::before {
+  content: "↑ Header Area";
+  display: block;
+  font-size: 12px;
+  color: #888;
+  margin-bottom: 4px;
+}
+
+.footer-area::before {
+  content: "↓ Footer Area";
+  display: block;
+  font-size: 12px;
+  color: #888;
+  margin-bottom: 4px;
+}
+
+.with-watermark {
+  position: relative;
+}
+
+.with-watermark::before {
+  content: attr(data-watermark);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(var(--wm-rotation, -30deg));
+  font-size: var(--wm-size, 5rem);
+  font-weight: bold;
+  color: var(--wm-color, rgba(0, 0, 0, 0.08));
+  white-space: nowrap;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.with-watermark .ProseMirror {
+  position: relative;
+  z-index: 1;
+}
+
+.editor-container {
+  margin-left: 300px; /* matches sidebar width */
+  margin-right: 20px; /* right space */
+  padding-left: 20px; /* internal left padding */
+  padding-right: 20px; /* internal right padding */
+  flex: 1;
+}

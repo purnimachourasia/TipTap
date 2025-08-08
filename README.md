@@ -1,70 +1,79 @@
-# Getting Started with Create React App
+#  TipTap Multi-Page A4 Document Editor
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project implements a multi-page A4-style document editor using [TipTap](https://tiptap.dev/) with features like:
 
-## Available Scripts
+- Custom "Page" view with A4 styling
+- Manual page breaks using a toolbar button
+- Footer page numbers
+- Per-page rendering with pagination buttons
+- Character and word count tracking
+- Zoom, margins, and watermark configuration support (in progress)
 
-In the project directory, you can run:
+---
 
-### `npm start`
+##  Features
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- Page-styled layout mimicking A4 (800×1122 px)
+- Dynamic toolbar tab ("Text", "Page")
+- Manual **Page Break** insertion
+- Page footer showing `Page X`
+- Pagination controls to navigate between pages
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+---
 
-### `npm test`
+##  Constraints & Trade-offs
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+| Area | Constraint | Trade-off |
+|------|------------|-----------|
+| Page rendering | All TipTap content is shared across all pages | Same content renders on all pages until proper splitting is added |
+| Page break handling | Manual "Page Break" button increases `totalPages` | Doesn’t insert a true page break node into the TipTap doc |
+| Pagination | Pages are scrollable and selectable via buttons | No virtual scrolling — might be heavy for long docs |
+| Editor reuse | A single TipTap instance is used | Editing updates all pages at once |
+| Print/PDF | Not fully implemented yet | Needs custom rendering or `html2pdf`, `puppeteer`, or server-side export tools |
 
-### `npm run build`
+---
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+##  How to Productionize
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Logical Page Splitting
+- **Current**: Pages are duplicated with shared content.
+- **Fix**: Implement a `PageBreak` node extension and split `editor.state.doc` on these to render real paginated views.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+###  Dynamic Page Rendering
+- Build per-page editable zones or create a new Editor instance per page.
+- Alternatively, create a read-only preview that splits content correctly based on page breaks.
 
-### `npm run eject`
+###  PDF Export
+- Use libraries like:
+  - `html2pdf.js` (for client-side export)
+  - `puppeteer` (server-side headless Chrome PDF)
+  - `jsPDF` (if building structured PDF manually)
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### Features to Add
+- Header/footer support
+- Page thumbnails
+- Sidebar for navigation
+- Undo/redo
+- Collaboration (via Yjs, Socket.IO, etc.)
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+---
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## Testing & Reliability
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+- Add integration tests for:
+  - Inserting/removing page breaks
+  - Page counting
+  - Content overflow behavior
+- Handle edge cases like long tables/images across pages
 
-## Learn More
+---
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## Deployment Suggestions
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+- Host using Vercel, Netlify, or any static host (if frontend only)
+- Use Supabase / Firebase for saving documents
+- Use Node.js + Puppeteer for exporting rich PDF
 
-### Code Splitting
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
 
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)

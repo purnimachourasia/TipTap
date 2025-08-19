@@ -1,21 +1,20 @@
 // src/components/LeftSidebar.jsx
 import React, { useState } from "react";
 import {
-  FiHome,
-  FiBookOpen,
-  FiEdit2,
-  FiGlobe,
-  FiTool,
-  FiBookmark,
-  FiMoreVertical,
-  FiClock,
-  FiBell,
-  FiUser,
-  FiMessageSquare,
-  FiSettings,
-  FiHelpCircle,
-} from "react-icons/fi";
-import { FiColumns } from "react-icons/fi";
+  LuLayoutDashboard,
+  LuLanguages,
+  LuPencilLine,
+  LuPenTool,
+  LuBookmark,
+  LuClock3,
+  LuBell,
+  LuUser,
+  LuMessageSquare,
+  LuSettings,
+} from "react-icons/lu";
+import { IoIosHelpCircleOutline } from "react-icons/io";
+import { VscGlobe } from "react-icons/vsc";
+import { HiDotsVertical } from "react-icons/hi";
 import { IoIosArrowUp } from "react-icons/io";
 import "../styles/Sidebar.css";
 
@@ -24,16 +23,15 @@ const LeftSidebar = () => {
 
   return (
     <div className="vettam-sidebar">
+      {/* Brand */}
       <div className="sidebar-header">
-        <h2 className="brand">
-          Vettam.AI <FiColumns className="col-icon" />
-        </h2>
-
+        <h2 className="brand">Vettam.AI</h2>
         <button className="new-chat-btn">
-          <FiMessageSquare /> New Chat
+          <LuMessageSquare /> New Chat
         </button>
       </div>
 
+      {/* Features */}
       <div className="card-section">
         <p className="section-title">Features</p>
         <ul className="sidebar-list">
@@ -41,29 +39,30 @@ const LeftSidebar = () => {
             className={activeItem === "Workspace" ? "active" : ""}
             onClick={() => setActiveItem("Workspace")}
           >
-            <FiHome className="icon" /> Workspace
+            <LuLayoutDashboard className="icon" /> Workspace
           </li>
           <li
             className={activeItem === "Research" ? "active" : ""}
             onClick={() => setActiveItem("Research")}
           >
-            <FiBookOpen className="icon" /> Research
+            <VscGlobe className="icon" /> Research
           </li>
           <li
             className={activeItem === "Translate" ? "active" : ""}
             onClick={() => setActiveItem("Translate")}
           >
-            <FiGlobe className="icon" /> Translate
+            <LuLanguages className="icon" /> Translate
           </li>
           <li
             className={activeItem === "Write" ? "active" : ""}
             onClick={() => setActiveItem("Write")}
           >
-            <FiEdit2 className="icon" /> Write
+            <LuPencilLine className="icon" /> Write
           </li>
         </ul>
       </div>
 
+      {/* Tools */}
       <div className="card-section">
         <p className="section-title">Tools</p>
         <ul className="sidebar-list">
@@ -71,20 +70,21 @@ const LeftSidebar = () => {
             className={activeItem === "Editor" ? "active" : ""}
             onClick={() => setActiveItem("Editor")}
           >
-            <FiTool className="icon" /> Editor
+            <LuPenTool className="icon" /> Editor
           </li>
           <li
             className={activeItem === "Bookmarks" ? "active" : ""}
             onClick={() => setActiveItem("Bookmarks")}
           >
-            <FiBookmark className="icon" /> Bookmarks
+            <LuBookmark className="icon" /> Bookmarks
           </li>
         </ul>
       </div>
 
+      {/* Chat History */}
       <div className="chat-history-card">
         <div className="chat-history-header">
-          <FiClock className="icon-clock" />
+          <LuClock3 className="icon-clock" />
           <span className="chat-history">Chat History</span>
         </div>
         <div className="today">
@@ -94,15 +94,15 @@ const LeftSidebar = () => {
         <div className="chat-history-list">
           <div className="chat-item">
             <span>Lorem ipsum dolor sit amet consectetur.</span>
-            <FiMoreVertical className="icon-chat" />
+            <HiDotsVertical className="icon-chat" />
           </div>
           <div className="chat-item">
             <span>Lorem ipsum dolor sit amet consectetur.</span>
-            <FiMoreVertical />
+            <HiDotsVertical />
           </div>
           <div className="chat-item">
             <span>Lorem ipsum dolor sit amet consectetur.</span>
-            <FiMoreVertical />
+            <HiDotsVertical />
           </div>
           <a className="view-more" href="#">
             View more
@@ -110,32 +110,30 @@ const LeftSidebar = () => {
         </div>
       </div>
 
+      {/* Footer */}
       <div className="sidebar-footer">
-        {/* Top row: avatars + notification */}
         <div className="footer-top">
           <div className="avatars">
-            <img src="https://i.pravatar.cc/24?img=1" alt="avatar" />
-            <img src="https://i.pravatar.cc/24?img=1" alt="avatar" />
-            <img src="https://i.pravatar.cc/24?img=1" alt="avatar" />
+            <img src="https://i.pravatar.cc/24?img=11" alt="avatar" />
+            <img src="https://i.pravatar.cc/24?img=12" alt="avatar" />
+            <img src="https://i.pravatar.cc/24?img=13" alt="avatar" />
           </div>
           <div className="notifications">
-            <FiBell />
+            <LuBell />
             <span className="badge">12</span>
           </div>
         </div>
 
-        {/* Divider */}
         <div className="footer-divider"></div>
 
-        {/* Bottom row: user avatar, name, settings/help */}
         <div className="footer-bottom">
           <div className="user-info">
-            <FiUser className="user-avatar" />
+            <LuUser className="user-avatar" />
             <span>Michael Smith</span>
           </div>
           <div className="footer-actions">
-            <FiSettings />
-            <FiHelpCircle />
+            <LuSettings />
+            <IoIosHelpCircleOutline />
           </div>
         </div>
       </div>
